@@ -1,3 +1,16 @@
-<p>
-  usuario works!
-</p>
+<app-loading *ngIf="loading"></app-loading>
+
+<app-error *ngIf="error && !loading" [error]="error" ></app-error>
+
+<div *ngIf="!loading && !error" class="row">
+	<div class="col-3">
+		<img class="img-thumbnail" [src]="user.avatar" alt="Foto del usuario">
+	</div>
+	<div class="col">
+		<ul class="list-group">
+			<li class="list-group-item"><strong>ID</strong> {{ user.id}} </li>
+			<li class="list-group-item">{{ user.first_name }}</li>
+			<li class="list-group-item">{{ user.last_name }}</li>
+		</ul>
+	</div>
+</div>
